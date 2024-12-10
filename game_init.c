@@ -1,12 +1,26 @@
 #include "game_init.h"
+#include "shared.h"
 
-void initializing(void) {
+void initialize_game(void) {
+    initialize_player(&player);
+    layer = 0;
+}
+
+void initialize_player(struct player_data *p) {
+    p->health = 100;
+    p->max_health = 100;
+    p->attack = 10;
+    p->defense = 5;
+    p->level = 1;
+    p->gold = 0;
+}
+
+void initialize_layer(void) {
     for (int i = 0; i < WIDTH; ++i) {
         for (int j = 0; j < LENGTH; ++j) {
-            map_layer[i][j] = ' ';
             entity_layer[i][j] = ' ';
-            walkable_layer[i][j] = 0;
-            explored_layer[i][j] = false;
+            walkable_layer[i][j] = -1;
+            explored_layer[i][j] = 0;
         }
     }
     for (int i = 0; i <= 8; ++i) {
@@ -15,4 +29,5 @@ void initializing(void) {
             room_data[i].map_info.gate[j].is_exist = true;
         }
     }
+    layer++;
 }
