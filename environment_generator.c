@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <math.h>
 #include "environment_generator.h"
 #include "shared.h"
 
