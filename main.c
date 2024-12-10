@@ -17,7 +17,7 @@ int main(void)
     while (1) {
         loop:
         initialize_layer();
-        generate_map_layer();
+        generate_map();
         generate_entity();
         while (1) {
             reveal_room();
