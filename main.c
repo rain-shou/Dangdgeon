@@ -7,6 +7,8 @@
 #include "rendering.h"
 #include "player_generator.h"
 #include "interface.h"
+#include "script.h"
+#include "dialogue.h"
 
 int main(void)
 {
@@ -35,6 +37,8 @@ int main(void)
             reveal_room();
             draw_layer();
             int signal = player_move();
+            free_dialogue(dialogue);
+            dialogue = create_dialogue();
             switch(signal) {
                 case 0:
                     break;
