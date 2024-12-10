@@ -3,36 +3,47 @@
 
 int player_move(void) {
     int ch = getch();
-    char x;
 
     entity_layer[player_pos_y][player_pos_x] = ' ';
     if (ch == 'w' || ch == 'W') {
-        if (entity_layer[player_pos_y - 1][player_pos_x] == '%') {
+        if (walkable_layer[player_pos_y - 1][player_pos_x] == 13) {
             return 1;
-        } else if (walkable_layer[player_pos_y - 1][player_pos_x] == 1) {
+        } else if (walkable_layer[player_pos_y - 1][player_pos_x] == 14) {
+            return 2;
+        } else if (walkable_layer[player_pos_y - 1][player_pos_x] >= 0
+                && walkable_layer[player_pos_y - 1][player_pos_x] < 11) {
             player_pos_y--;
         }
     } else if (ch == 'a' || ch == 'A') {
-        if (entity_layer[player_pos_y][player_pos_x - 1] == '%') {
+        if (walkable_layer[player_pos_y][player_pos_x - 1] == 13) {
             return 1;
-        } else if (walkable_layer[player_pos_y][player_pos_x - 1] == 1) {
+        } else if (walkable_layer[player_pos_y][player_pos_x - 1] == 14) {
+            return 2;
+        } else if (walkable_layer[player_pos_y][player_pos_x - 1] >= 0
+                && walkable_layer[player_pos_y][player_pos_x - 1] < 11) {
             player_pos_x--;
         }
     } else if (ch == 's' || ch == 'S') {
-        if (entity_layer[player_pos_y + 1][player_pos_x] == '%') {
+        if (walkable_layer[player_pos_y + 1][player_pos_x] == 13) {
             return 1;
-        } else if (walkable_layer[player_pos_y + 1][player_pos_x] == 1) {
+        } else if (walkable_layer[player_pos_y + 1][player_pos_x] == 14) {
+            return 2;
+        } else if (walkable_layer[player_pos_y + 1][player_pos_x] >= 0
+                && walkable_layer[player_pos_y + 1][player_pos_x] < 11) {
             player_pos_y++;
         }
     } else if (ch == 'd' || ch == 'D') {
-        if (entity_layer[player_pos_y][player_pos_x + 1] == '%') {
+        if (walkable_layer[player_pos_y][player_pos_x + 1] == 13) {
             return 1;
-        } else if (walkable_layer[player_pos_y][player_pos_x + 1] == 1) {
+        } else if (walkable_layer[player_pos_y][player_pos_x + 1] == 14) {
+            return 2;
+        } else if (walkable_layer[player_pos_y][player_pos_x + 1] >= 0
+                && walkable_layer[player_pos_y][player_pos_x + 1] < 11) {
             player_pos_x++;
         }
     } else if (ch == 'q' || ch == 'Q') {
         entity_layer[player_pos_y][player_pos_x] = '@';
-        return 2;
+        return 9;
     }
     entity_layer[player_pos_y][player_pos_x] = '@';
 
