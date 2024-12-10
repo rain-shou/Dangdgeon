@@ -98,3 +98,65 @@ bool show_exit_screen() {
         }
     }
 }
+
+bool show_game_over(void) {
+    int current_option = 0;
+    const char *title[] = {
+            "  ____                         ___                 \n",
+            " / ___| __ _ _ __ ___   ___   / _ \\__   _____ _ __ \n",
+            "| |  _ / _` | '_ ` _ \\ / _ \\ | | | \\ \\ / / _ \\ '__|\n",
+            "| |_| | (_| | | | | | |  __/ | |_| |\\ V /  __/ |   \n",
+            " \\____|\\__,_|_| |_| |_|\\___|  \\___/  \\_/ \\___|_|   ",
+    };
+    const int title_lines = sizeof(title) / sizeof(title[0]);
+    const char *options[START_SCREEN_OPTION_COUNT] = {"RESTART", "EXIT GAME"};
+
+    for (;;) {
+        clear();
+        for (int i = 0; i < title_lines; i++) {
+            mvprintw(3 + i, (int)(COLS - strlen(title[i])) / 2, "%s", title[i]);
+        }
+        mvprintw(6 + title_lines, (int)(COLS - strlen(player.name)) / 2, "%s", player.name);
+        mvprintw(7 + title_lines, (int)(COLS - 13) / 2, "Layer: %6d", layer);
+        mvprintw(8 + title_lines, (int)(COLS - 12) / 2, "Gold: %6d", player.gold);
+        for (int i = 0; i < START_SCREEN_OPTION_COUNT; i++) {
+            if (i == current_option) {
+                mvprintw(12 + title_lines + i, (int)(COLS - strlen(options[i]) - 4) / 2, "< %s >", options[i]);
+            } else {
+                mvprintw(12 + title_lines + i, (int)(COLS - strlen(options[i])) / 2, "%s", options[i]);
+            }
+        }
+        refresh();
+        switch (getch()) {
+            case KEY_UP:
+                current_option = (current_option - 1 + START_SCREEN_OPTION_COUNT) % START_SCREEN_OPTION_COUNT;
+                break;
+            case KEY_DOWN:
+                current_option = (current_option + 1) % START_SCREEN_OPTION_COUNT;
+                break;
+            case '\n':
+                if (current_option == 0) {
+                    return true;
+                } else if (current_option == 1) {
+                    return false;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+void get_player_name(char *name, int max_length) {
+    char buffer[128];
+    echo();
+    curs_set(1);
+    clear();
+    mvprintw(LINES / 2 - 1, (COLS - 25) / 2, "Enter your name (max %d): ", max_length);
+    refresh();
+    mvgetnstr(LINES / 2, (COLS - max_length) / 2, buffer, max_length);
+    strncpy(name, buffer, max_length);
+    name[max_length] = '\0';
+    noecho();
+    curs_set(0);
+}
