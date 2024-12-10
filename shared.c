@@ -15,3 +15,4 @@ int layer;
 int current_layer;
 int upstairs_pos[LAYER][2];
 int downstairs_pos[LAYER][2];
+bool flag;
