@@ -43,15 +43,22 @@ int main(void)
                 case 0:
                     break;
                 case 1:
-                    save_current_layer(current_layer - 1);
-                    current_layer++;
-                    flag = true;
+                    trigger_downstairs();
                     goto loop;
                 case 2:
-                    save_current_layer(current_layer - 1);
-                    current_layer--;
-                    flag = false;
+                    trigger_upstairs();
                     goto loop;
+                case 3:
+                    trigger_trap();
+                    if (check_death()) {
+                        if (show_game_over()) {
+                            goto start;
+                        } else {
+                            ncurses_cleanup();
+                            exit(EXIT_SUCCESS);
+                        }
+                    }
+                    break;
                 case 9:
                     if (!show_exit_screen()) {
                         ncurses_cleanup();
