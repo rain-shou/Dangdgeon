@@ -3,6 +3,8 @@
 
 #include "shared.h"
 
-void initializing();
+void initialize_game();
+void initialize_layer();
+void initialize_player(struct player_data *player);
 
 #endif //DANGDGEON_GAME_INIT_H
