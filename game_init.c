@@ -1,7 +1,10 @@
 #include "game_init.h"
+#include "dialogue.h"
+#include "interface.h"
 
 void initialize_game(void) {
     initialize_player(&player);
+    get_player_name(player.name, MAX_NAME_LENGTH);
     layer = 0;
     current_layer = 1;
     for (int i = 0; i < LAYER; i++) {
@@ -12,6 +15,7 @@ void initialize_game(void) {
             }
         }
     }
+    dialogue = create_dialogue();
 }
 
 void initialize_player(struct player_data *p) {
