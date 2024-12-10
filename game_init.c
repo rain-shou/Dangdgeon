@@ -1,9 +1,17 @@
 #include "game_init.h"
-#include "shared.h"
 
 void initialize_game(void) {
     initialize_player(&player);
     layer = 0;
+    current_layer = 1;
+    for (int i = 0; i < LAYER; i++) {
+        for (int j = 0; j < WIDTH; ++j) {
+            for (int k = 0; k < LENGTH; ++k) {
+                total_walkable_layer[i][j][k] = -1;
+                total_explored_layer[i][j][k] = 0;
+            }
+        }
+    }
 }
 
 void initialize_player(struct player_data *p) {
@@ -30,4 +38,34 @@ void initialize_layer(void) {
         }
     }
     layer++;
+}
+
+void load_layer(int n) {
+    for (int i = 0; i < WIDTH; ++i) {
+        for (int j = 0; j < LENGTH; ++j) {
+            walkable_layer[i][j] = total_walkable_layer[n][i][j];
+            explored_layer[i][j] = total_explored_layer[n][i][j];
+        }
+    }
+    for (int i = 0; i < 8; i++) {
+        regions[i] = total_regions[n][i];
+    }
+    for (int i = 0; i < 9; i++) {
+        room_data[i] = total_room_data[n][i];
+    }
+}
+
+void save_current_layer(int n) {
+    for (int i = 0; i < WIDTH; ++i) {
+        for (int j = 0; j < LENGTH; ++j) {
+            total_walkable_layer[n][i][j] = walkable_layer[i][j];
+            total_explored_layer[n][i][j] = explored_layer[i][j];
+        }
+    }
+    for (int i = 0; i < 8; i++) {
+        total_regions[n][i] = regions[i];
+    }
+    for (int i = 0; i < 9; i++) {
+        total_room_data[n][i] = room_data[i];
+    }
 }
