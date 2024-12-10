@@ -11,6 +11,7 @@ void generate_map(void) {
     }
     generate_paths();
     generate_stairs();
+    generate_traps();
 }
 
 void generate_main_room(void) {
