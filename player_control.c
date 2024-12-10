@@ -13,6 +13,10 @@ int player_move(void) {
         } else if (walkable_layer[player_pos_y - 1][player_pos_x] >= 0
                 && walkable_layer[player_pos_y - 1][player_pos_x] < 11) {
             player_pos_y--;
+        } else if (walkable_layer[player_pos_y - 1][player_pos_x] == 15) {
+            player_pos_y--;
+            entity_layer[player_pos_y][player_pos_x] = '@';
+            return 3;
         }
     } else if (ch == 'a' || ch == 'A') {
         if (walkable_layer[player_pos_y][player_pos_x - 1] == 13) {
@@ -22,6 +26,10 @@ int player_move(void) {
         } else if (walkable_layer[player_pos_y][player_pos_x - 1] >= 0
                 && walkable_layer[player_pos_y][player_pos_x - 1] < 11) {
             player_pos_x--;
+        } else if (walkable_layer[player_pos_y][player_pos_x - 1] == 15) {
+            player_pos_x--;
+            entity_layer[player_pos_y][player_pos_x] = '@';
+            return 3;
         }
     } else if (ch == 's' || ch == 'S') {
         if (walkable_layer[player_pos_y + 1][player_pos_x] == 13) {
@@ -31,6 +39,10 @@ int player_move(void) {
         } else if (walkable_layer[player_pos_y + 1][player_pos_x] >= 0
                 && walkable_layer[player_pos_y + 1][player_pos_x] < 11) {
             player_pos_y++;
+        } else if (walkable_layer[player_pos_y + 1][player_pos_x] == 15) {
+            player_pos_y++;
+            entity_layer[player_pos_y][player_pos_x] = '@';
+            return 3;
         }
     } else if (ch == 'd' || ch == 'D') {
         if (walkable_layer[player_pos_y][player_pos_x + 1] == 13) {
@@ -40,6 +52,10 @@ int player_move(void) {
         } else if (walkable_layer[player_pos_y][player_pos_x + 1] >= 0
                 && walkable_layer[player_pos_y][player_pos_x + 1] < 11) {
             player_pos_x++;
+        } else if (walkable_layer[player_pos_y][player_pos_x + 1] == 15) {
+            player_pos_x++;
+            entity_layer[player_pos_y][player_pos_x] = '@';
+            return 3;
         }
     } else if (ch == 'q' || ch == 'Q') {
         entity_layer[player_pos_y][player_pos_x] = '@';
