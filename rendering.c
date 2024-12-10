@@ -1,12 +1,15 @@
 #include <ncurses.h>
 #include "rendering.h"
 #include "shared.h"
+#include "dialogue.h"
 
-void draw_layer() {
+void draw_layer(void) {
     clear();
     for (int i = 0; i < WIDTH; ++i) {
         for (int j = 0; j < LENGTH; ++j) {
-            if (explored_layer[i][j] == 2 && entity_layer[i][j] != ' ') {
+            if (entity_layer[i][j] == '@') {
+                mvaddch(i, j, '@');
+            } else if (explored_layer[i][j] == 2 && entity_layer[i][j] != ' ') {
                 mvaddch(i, j, entity_layer[i][j]);
             } else {
                 if (walkable_layer[i][j] < 0 || explored_layer[i][j] == 0 ||
@@ -26,16 +29,22 @@ void draw_layer() {
                     mvaddch(i, j, '>');
                 } else if (walkable_layer[i][j] == 14) {
                     mvaddch(i, j, '<');
+                } else if (walkable_layer[i][j] == 15 && explored_layer[i][j] == 2) {
+                    mvaddch(i, j, '^');
                 }
             }
         }
     }
     mvprintw(WIDTH + 2, 0, "Layer: %3d  CL: %3d  Level:%3d  Gold: %6d  Hp: %4d(%4d)  Str: %4d  Arm: %4d  Exp: %6d/%6d",
              layer, current_layer, player.level, player.gold, player.health, player.max_health, player.attack, player.defense, player.experience, player.level * 100);
+
+    for (int i = 0; i < dialogue->line_count; ++i) {
+        mvprintw(WIDTH + 5 + i, 0, "%s", dialogue->lines[i]);
+    }
     refresh();
 }
 
-void reveal_room() {
+void reveal_room(void) {
     for (int i = 0; i < WIDTH; ++i) {
         for (int j = 0; j < LENGTH; ++j) {
             if (explored_layer[i][j] == 2) {
