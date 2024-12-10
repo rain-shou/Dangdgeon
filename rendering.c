@@ -14,7 +14,7 @@ void draw_layer() {
                     mvaddch(i, j, ' ');
                 } else if (walkable_layer[i][j] <= 8 && explored_layer[i][j] == 2) {
                     mvaddch(i, j, '.');
-                } else if (walkable_layer[i][j] == 9 ) {
+                } else if (walkable_layer[i][j] == 9) {
                     mvaddch(i, j, '+');
                 } else if (walkable_layer[i][j] == 10) {
                     mvaddch(i, j, '#');
