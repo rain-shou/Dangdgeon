@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include "interface.h"
+#include "shared.h"
 
 #define START_SCREEN_OPTION_COUNT 2
 #define EXIT_SCREEN_OPTION_COUNT 2
