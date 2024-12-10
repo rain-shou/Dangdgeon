@@ -13,10 +13,10 @@ int main(void)
     ncurses_init();
 
     show_start_screen();
-
+    initialize_game();
     while (1) {
         loop:
-        initializing();
+        initialize_layer();
         generate_map_layer();
         generate_entity();
         while (1) {
