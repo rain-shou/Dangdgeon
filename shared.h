@@ -5,6 +5,8 @@
 
 #define LENGTH 99
 #define WIDTH 35
+#define LAYER 50
+#define MAX_NAME_LENGTH 16
 
 /* Each map_layer is divided to one main-room_data and eight areas */
 struct region_info {
@@ -33,6 +35,7 @@ struct room_info {
 };
 
 struct player_data {
+    char name[MAX_NAME_LENGTH + 1];
     int health;
     int max_health;
     int attack;
@@ -51,6 +54,7 @@ extern int walkable_layer[WIDTH][LENGTH];
     // 12 for |
     // 13 for >
     // 14 for <
+    // 15 for ^
     // -1 for none
 extern int explored_layer[WIDTH][LENGTH];
 extern int total_walkable_layer[LAYER][WIDTH][LENGTH];
@@ -65,5 +69,6 @@ extern int current_layer;
 extern struct player_data player;
 extern int upstairs_pos[50][2]; // 0 for x, 1 for y
 extern int downstairs_pos[50][2];
+extern bool flag;
 
 #endif //DANGDGEON_SHARED_H
