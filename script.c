@@ -1,9 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "script.h"
-#include "shared.h"
+#include "map_data.h"
 #include "dialogue.h"
 #include "game_init.h"
+#include "player_data.h"
 
 void trigger_trap(void) {
     int damage = (int)(random() % 10 + 1);
@@ -25,13 +26,13 @@ bool check_death(void) {
 void trigger_downstairs(void) {
     save_current_layer(current_layer - 1);
     current_layer++;
-    flag = true;
+    up_or_down = true;
     add_line_to_dialogue(dialogue, "You descend into the depths.");
 }
 
 void trigger_upstairs(void) {
     save_current_layer(current_layer - 1);
     current_layer--;
-    flag = false;
+    up_or_down = false;
     add_line_to_dialogue(dialogue, "You ascend toward the light.");
 }
