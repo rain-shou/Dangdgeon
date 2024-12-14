@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include "interface.h"
-#include "shared.h"
+#include "map_data.h"
 #include "player_data.h"
 
 #define START_SCREEN_OPTION_COUNT 2
