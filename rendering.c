@@ -36,8 +36,10 @@ void draw_layer(void) {
             }
         }
     }
-    mvprintw(WIDTH + 2, 0, "Layer: %3d  CL: %3d  Level:%3d  Gold: %6d  Hp: %4d(%4d)  Str: %4d  Arm: %4d  Exp: %6d/%6d",
-             layer, current_layer, player.level, player.gold, player.health, player.max_health, player.attack, player.defense, player.experience, player.level * 100);
+    mvprintw(WIDTH + 2, 0, "Layer: %3d  CL: %3d  Level:%3d  Gold: %6d  Hp: %4d(%4d)  Str: %4d + %4d  Arm: %4d + %4d  Exp: %6d/%6d  Portion: %4d",
+             layer, current_layer, player.level, player.gold, player.health, player.max_health,
+             player.attack, player.total_attack - player.attack, player.defense, player.total_defense - player.defense,
+             player.experience, player.level * 100, player.portion);
 
     for (int i = 0; i < dialogue->line_count; ++i) {
         mvprintw(WIDTH + 5 + i, 0, "%s", dialogue->lines[i]);
