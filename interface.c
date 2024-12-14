@@ -4,6 +4,7 @@
 #include "interface.h"
 #include "map_data.h"
 #include "player_data.h"
+#include "script.h"
 
 #define START_SCREEN_OPTION_COUNT 2
 #define EXIT_SCREEN_OPTION_COUNT 2
@@ -160,4 +161,36 @@ void get_player_name(char *name, int max_length) {
     name[max_length] = '\0';
     noecho();
     curs_set(0);
+}
+
+void open_bag(void) {
+    int current_selection = 0;
+
+    while (1) {
+        clear();
+        mvprintw(0, 0, "Bag Contents (Use UP/DOWN to select, ENTER to equip, Q to quit):");
+        for (int i = 0; i < player.bag_number; i++) {
+            if (i == current_selection) {
+                mvprintw(i + 2, 0, "> %s %s", player.bag[i].name, player.bag[i].has_equipped ? "[Equipped]" : " ");
+            } else {
+                mvprintw(i + 2, 0, "%s %s", player.bag[i].name, player.bag[i].has_equipped ? "[Equipped]" : " ");
+            }
+        }
+        refresh();
+        switch (getch()) {
+            case KEY_UP:
+                current_selection = (current_selection - 1 + player.bag_number) % player.bag_number;
+                break;
+            case KEY_DOWN:
+                current_selection = (current_selection + 1) % player.bag_number;
+                break;
+            case '\n':
+                equip_equipment(current_selection);
+                break;
+            case 'q':
+                return;
+            default:
+                break;
+        }
+    }
 }
