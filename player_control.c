@@ -1,5 +1,6 @@
 #include <ncurses.h>
 #include "player_control.h"
+#include "player_data.h"
 
 int player_move(void) {
     int ch = getch();
