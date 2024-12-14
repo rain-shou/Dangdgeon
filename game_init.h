@@ -1,7 +1,7 @@
 #ifndef DANGDGEON_GAME_INIT_H
 #define DANGDGEON_GAME_INIT_H
 
-#include "shared.h"
+#include "map_data.h"
 
 void initialize_game();
 void initialize_layer();
