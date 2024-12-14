@@ -26,7 +26,7 @@ int main(void)
             generate_player();
         } else if (current_layer <= layer) {
             load_layer(current_layer - 1);
-            if (flag) {
+            if (up_or_down) {
                 restore_player_to_upstairs();
             } else {
                 restore_player_to_downstairs();
