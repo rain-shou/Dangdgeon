@@ -1,7 +1,7 @@
 #ifndef DANGDGEON_MAP_GENERATOR_H
 #define DANGDGEON_MAP_GENERATOR_H
 
-#include "shared.h"
+#include "map_data.h"
 
 void generate_map_layer(void);
 void generate_main_room(void);
