@@ -3,6 +3,7 @@
 #include <ncurses.h>
 #include "interface.h"
 #include "shared.h"
+#include "player_data.h"
 
 #define START_SCREEN_OPTION_COUNT 2
 #define EXIT_SCREEN_OPTION_COUNT 2
