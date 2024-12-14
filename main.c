@@ -9,6 +9,7 @@
 #include "interface.h"
 #include "script.h"
 #include "dialogue.h"
+#include "map_data.h"
 
 int main(void)
 {
