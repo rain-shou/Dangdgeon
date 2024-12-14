@@ -54,6 +54,7 @@ void initialize_player(struct player_data *p) {
     p->experience = 100;
     p->armor = 0;
     p->weapon = 0;
+    p->portion = 0;
     // test_bag();
 }
 
