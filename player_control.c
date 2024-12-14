@@ -65,6 +65,22 @@ int player_move(void) {
     } else if (ch == 'b' || ch == 'B') {
         entity_layer[player_pos_y][player_pos_x] = '@';
         return 8;
+    } else if (ch == 'e' || ch == 'E') {
+        entity_layer[player_pos_y][player_pos_x] = '@';
+        return 10;
+    }
+    if (entity_layer[player_pos_y][player_pos_x] == ')') {
+        entity_layer[player_pos_y][player_pos_x] = '@';
+        return 4;
+    } else if (entity_layer[player_pos_y][player_pos_x] == '[') {
+        entity_layer[player_pos_y][player_pos_x] = '@';
+        return 5;
+    } else if (entity_layer[player_pos_y][player_pos_x] == '*') {
+        entity_layer[player_pos_y][player_pos_x] = '@';
+        return 6;
+    } else if (entity_layer[player_pos_y][player_pos_x] == '!') {
+        entity_layer[player_pos_y][player_pos_x] = '@';
+        return 7;
     }
     entity_layer[player_pos_y][player_pos_x] = '@';
 
