@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "environment_generator.h"
-#include "shared.h"
+#include "map_data.h"
 
 void generate_stairs(void) {
     if (layer != 50) {
