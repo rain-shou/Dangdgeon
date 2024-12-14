@@ -56,6 +56,7 @@ void initialize_player(struct player_data *p) {
     p->weapon = 0;
     p->portion = 0;
     // test_bag();
+    p->bag_number = 0;
 }
 
 void initialize_layer(void) {
