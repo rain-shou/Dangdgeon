@@ -17,11 +17,12 @@ struct dialogue_info * create_dialogue() {
 }
 
 void add_line_to_dialogue(struct dialogue_info *d, const char *line) {
-    d->lines = (char **)realloc(d->lines, sizeof(char *) * (d->line_count + 1));
-    if (!d->lines) {
+    char **temp = (char **)realloc(d->lines, sizeof(char *) * (d->line_count + 1));
+    if (!temp) {
         fprintf(stderr, "Error: add_line_to_dialogue falls. Re-allocating Error.\n");
         exit(EXIT_FAILURE);
     }
+    d->lines = temp;
     d->lines[d->line_count] = strdup(line);
     d->line_count++;
 }
