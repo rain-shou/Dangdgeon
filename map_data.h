@@ -51,10 +51,8 @@ extern struct region_info regions[8];
 extern struct room_info room_data[9];
 extern struct region_info total_regions[LAYER][8];
 extern struct room_info total_room_data[LAYER][9];
-extern int player_pos_x, player_pos_y;
 extern int layer;
 extern int current_layer;
-extern struct player_data player;
 extern int upstairs_pos[50][2]; // 0 for x, 1 for y
 extern int downstairs_pos[50][2];
 extern bool up_or_down; // down for true, up for false
