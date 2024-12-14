@@ -28,7 +28,7 @@ struct room_info {
             bool is_exist;
             int x;
             int y;
-        } gate[4]; /*0 for north, 1 for west, 2 for south, 3 for east.*/
+        }gate[4]; /*0 for north, 1 for west, 2 for south, 3 for east.*/
 
     }map_info;
 };
@@ -56,5 +56,6 @@ extern int current_layer;
 extern int upstairs_pos[50][2]; // 0 for x, 1 for y
 extern int downstairs_pos[50][2];
 extern bool up_or_down; // down for true, up for false
+extern int layer_treasure[2];
 
 #endif //DANGDGEON_MAP_DATA_H
