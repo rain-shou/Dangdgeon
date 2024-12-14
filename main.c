@@ -13,9 +13,10 @@
 
 int main(void)
 {
-    bool flag = true;
+    start:
     srandom((unsigned)time(NULL));
     ncurses_init();
+    set_terminal_size();
 
     show_start_screen();
     initialize_game();
@@ -59,6 +60,9 @@ int main(void)
                             exit(EXIT_SUCCESS);
                         }
                     }
+                    break;
+                case 8:
+                    open_bag();
                     break;
                 case 9:
                     if (!show_exit_screen()) {
