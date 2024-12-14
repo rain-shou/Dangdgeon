@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "map_generator.h"
 #include "environment_generator.h"
+#include "map_data.h"
 
 void generate_map(void) {
     generate_main_room();
