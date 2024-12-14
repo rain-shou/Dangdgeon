@@ -1,6 +1,7 @@
 #include "game_init.h"
 #include "dialogue.h"
 #include "interface.h"
+#include "player_data.h"
 
 void initialize_game(void) {
     initialize_player(&player);
@@ -16,6 +17,7 @@ void initialize_game(void) {
         }
     }
     dialogue = create_dialogue();
+    up_or_down = true;
 }
 
 void initialize_player(struct player_data *p) {
