@@ -2,6 +2,7 @@
 #define DANGDGEON_PLAYER_DATA_H
 
 #define MAX_NAME_LENGTH 16
+#define MAX_BAG_STORAGE 16
 
 #include <stdbool.h>
 
