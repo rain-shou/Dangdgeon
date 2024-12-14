@@ -1,7 +1,8 @@
 #include <ncurses.h>
 #include "rendering.h"
-#include "shared.h"
+#include "map_data.h"
 #include "dialogue.h"
+#include "player_data.h"
 
 void draw_layer(void) {
     clear();
