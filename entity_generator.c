@@ -65,8 +65,8 @@ void generate_gold(void) {
 }
 
 void generate_potion(void) {
-    int total_portion = (int)(random() % current_layer + 1) % 5;
-    for (int i = 0; i < total_portion; i++) {
+    int total_potion = (int)(random() % current_layer + 1) % 5;
+    for (int i = 0; i < total_potion; i++) {
         for (;;) {
             int pos_x = (int)(random() % 99 + 1);
             int pos_y = (int)(random() % 35 + 1);
