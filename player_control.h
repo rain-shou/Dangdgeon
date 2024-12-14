@@ -1,7 +1,7 @@
 #ifndef DANGDGEON_PLAYER_CONTROL_H
 #define DANGDGEON_PLAYER_CONTROL_H
 
-#include "shared.h"
+#include "map_data.h"
 
 int player_move();
 
