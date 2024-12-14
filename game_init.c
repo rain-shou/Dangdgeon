@@ -73,6 +73,8 @@ void initialize_layer(void) {
             room_data[i].map_info.gate[j].is_exist = true;
         }
     }
+    layer_treasure[0] = -1;
+    layer_treasure[1] = -1;
     layer++;
 }
 
