@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "player_generator.h"
 #include "shared.h"
+#include "player_data.h"
 
 void generate_player() {
     if (layer == 1) {
