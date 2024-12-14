@@ -3,6 +3,8 @@
 
 #define MAX_NAME_LENGTH 16
 
+#include <stdbool.h>
+
 struct bag_data {
     int category;   // 0 for weapon, 1 for armor
     int number;
