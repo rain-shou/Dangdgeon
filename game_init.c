@@ -2,6 +2,7 @@
 #include "dialogue.h"
 #include "interface.h"
 #include "player_data.h"
+#include "map_data.h"
 
 void initialize_game(void) {
     initialize_player(&player);
