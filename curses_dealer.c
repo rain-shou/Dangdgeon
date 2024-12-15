@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "curses_dealer.h"
 
-void ncurses_init() {
+void ncurses_init(void) {
     initscr();
     cbreak();
     noecho();
@@ -10,10 +10,10 @@ void ncurses_init() {
     curs_set(0);
 }
 
-void ncurses_cleanup() {
+void ncurses_cleanup(void) {
     endwin();
 }
 
-void set_terminal_size() {
+void set_terminal_size(void) {
     system("printf '\\e[8;50;150t'");
 }
