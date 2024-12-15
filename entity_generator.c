@@ -3,7 +3,7 @@
 #include "equipment_data.h"
 #include "map_data.h"
 
-void refresh_entity_layer() {
+void refresh_entity_layer(void) {
     for (int i = 0; i < WIDTH; ++i) {
         for (int j = 0; j < LENGTH; ++j) {
             entity_layer[i][j] = ' ';
@@ -11,15 +11,16 @@ void refresh_entity_layer() {
     }
 }
 
-void generate_entity_layer() {
+void generate_entity_layer(void) {
     generate_equipment();
     generate_gold();
     generate_potion();
     generate_amulet();
 }
 
-void generate_equipment() {
+void generate_equipment(void) {
     int has_equipment = false;
+    
     for (int i = 0; i < WEAPON_AMOUNT; i++) {
         if (weapon_list[i].floor == current_layer && !weapon_list[i].be_taken) {
             layer_treasure[0] = 0;
@@ -33,6 +34,7 @@ void generate_equipment() {
             break;
         }
     }
+    
     if (has_equipment) {
         for (;;) {
             int pos_x = (int)(random() % 99 + 1);
@@ -50,8 +52,9 @@ void generate_equipment() {
     }
 }
 
-void generate_gold() {
+void generate_gold(void) {
     int total_gold = (int)(random() % ((current_layer + 3) / 3) + 1);
+    
     for (int i = 0; i < total_gold; i++) {
         for (;;) {
             int pos_x = (int)(random() % 99 + 1);
@@ -65,8 +68,9 @@ void generate_gold() {
     }
 }
 
-void generate_potion() {
+void generate_potion(void) {
     int total_potion = (int)(random() % current_layer + 1) % 5;
+    
     for (int i = 0; i < total_potion; i++) {
         for (;;) {
             int pos_x = (int)(random() % 99 + 1);
@@ -80,7 +84,7 @@ void generate_potion() {
     }
 }
 
-void generate_amulet() {
+void generate_amulet(void) {
     if (current_layer == LAYER && amulet_not_taken) {
         for (;;) {
             int pos_x = (int)(random() % 99 + 1);
