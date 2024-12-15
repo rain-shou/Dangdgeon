@@ -8,7 +8,7 @@ struct dialogue_info {
 
 extern struct dialogue_info *dialogue;
 
-struct dialogue_info * create_dialogue();
+struct dialogue_info * create_dialogue(void);
 void add_line_to_dialogue(struct dialogue_info *d, const char *line);
 void free_dialogue(struct dialogue_info *d);
 
