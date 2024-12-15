@@ -81,6 +81,9 @@ int player_move(void) {
     } else if (entity_layer[player_pos_y][player_pos_x] == '!') {
         entity_layer[player_pos_y][player_pos_x] = '@';
         return 7;
+    } else if (entity_layer[player_pos_y][player_pos_x] == ',') {
+        entity_layer[player_pos_y][player_pos_x] = '@';
+        return 11;
     }
     entity_layer[player_pos_y][player_pos_x] = '@';
 
