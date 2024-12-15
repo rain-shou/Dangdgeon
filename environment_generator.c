@@ -3,7 +3,7 @@
 #include "environment_generator.h"
 #include "map_data.h"
 
-void generate_stairs(void) {
+void generate_stairs() {
     if (layer != 50) {
         for (int stair_pos_x, stair_pos_y;;) {
             stair_pos_x = (int)(random() % 99 + 1);
@@ -32,9 +32,9 @@ void generate_stairs(void) {
     }
 }
 
-void generate_traps(void) {
-    int n = (int)sqrt(layer);
-    for (int i = 0; i < n;) {
+void generate_traps() {
+    int total_traps = (int)sqrt(layer);
+    for (int i = 0; i < total_traps;) {
         int pos_x = (int)(random() % 99 + 1);
         int pos_y = (int)(random() % 35 + 1);
         if (walkable_layer[pos_y][pos_x] >= 0 && walkable_layer[pos_y][pos_x] < 9
