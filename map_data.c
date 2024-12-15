@@ -15,3 +15,4 @@ int upstairs_pos[LAYER][2];
 int downstairs_pos[LAYER][2];
 int layer_treasure[2];
 bool up_or_down;
+bool amulet_not_taken;
