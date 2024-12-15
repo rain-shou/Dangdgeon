@@ -57,5 +57,6 @@ extern int upstairs_pos[50][2]; // 0 for x, 1 for y
 extern int downstairs_pos[50][2];
 extern bool up_or_down; // down for true, up for false
 extern int layer_treasure[2];
+extern bool amulet_not_taken;
 
 #endif //DANGDGEON_MAP_DATA_H
