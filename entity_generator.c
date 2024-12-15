@@ -20,7 +20,7 @@ void generate_entity_layer() {
 
 void generate_equipment() {
     int has_equipment = false;
-    for (int i = 0; i < sizeof(weapon_list) / sizeof(weapon_list[0]); i++) {
+    for (int i = 0; i < WEAPON_AMOUNT; i++) {
         if (weapon_list[i].floor == current_layer && !weapon_list[i].be_taken) {
             layer_treasure[0] = 0;
             layer_treasure[1] = weapon_list[i].equipment_number;
