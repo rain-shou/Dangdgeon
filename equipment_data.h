@@ -3,6 +3,9 @@
 
 #include <stdbool.h>
 
+#define WEAPON_AMOUNT 8
+#define ARMOR_AMOUNT 8
+
 struct equipment {
     const char *name;
     int equipment_number;
@@ -14,7 +17,7 @@ struct equipment {
     bool be_taken;
 };
 
-extern struct equipment weapon_list[8];
-extern struct equipment armor_list[8];
+extern struct equipment weapon_list[WEAPON_AMOUNT];
+extern struct equipment armor_list[ARMOR_AMOUNT];
 
 #endif //DANGDGEON_EQUIPMENT_DATA_H
