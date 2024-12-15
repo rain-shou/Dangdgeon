@@ -1,7 +1,7 @@
 #ifndef DANGDGEON_MAP_GENERATOR_H
 #define DANGDGEON_MAP_GENERATOR_H
 
-void generate_map_layer(void);
+void generate_map(void);
 void generate_main_room(void);
 void define_area_boundaries(void);
 void clear_room_data(int n);
