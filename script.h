@@ -13,5 +13,7 @@ void pickup_armor(void);
 void pickup_gold(void);
 void pickup_potion(void);
 void drink_potion(void);
+void pickup_amulet(void);
+bool check_win(void);
 
 #endif //DANGDGEON_SCRIPT_H
