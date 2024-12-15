@@ -21,7 +21,6 @@ int main(void)
 
     show_start_screen();
     initialize_game();
-    
     while (1) {
         loop:
         if (current_layer > layer) {
@@ -36,6 +35,14 @@ int main(void)
                 restore_player_to_upstairs();
             } else {
                 restore_player_to_downstairs();
+                if (check_win()) {
+                    if (show_game_end()) {
+                        goto start;
+                    } else {
+                        ncurses_cleanup();
+                        exit(EXIT_SUCCESS);
+                    }
+                }
             }
             generate_entity_layer();
         }
@@ -88,6 +95,9 @@ int main(void)
                     break;
                 case 10:
                     drink_potion();
+                    break;
+                case 11:
+                    pickup_amulet();
                     break;
                 default:
                     break;
