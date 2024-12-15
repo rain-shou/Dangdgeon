@@ -1,4 +1,6 @@
-#include "player_data.h"
+#ifndef DANGDGEON_PLAYER_CONTROL_H
+#define DANGDGEON_PLAYER_CONTROL_H
 
-struct player_data player;
-int player_pos_x, player_pos_y;
+int player_move(void);
+
+#endif //DANGDGEON_PLAYER_CONTROL_H
