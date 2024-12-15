@@ -5,7 +5,7 @@
 
 struct dialogue_info *dialogue;
 
-struct dialogue_info *create_dialogue() {
+struct dialogue_info *create_dialogue(void) {
     struct dialogue_info *temp_dialogue = (struct dialogue_info *)malloc(sizeof(struct dialogue_info));
     if (!temp_dialogue) {
         fprintf(stderr, "Error: create_dialogue falls. Malloc Error.\n");
