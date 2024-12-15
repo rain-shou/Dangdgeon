@@ -1,10 +1,10 @@
 #ifndef DANGDGEON_PLAYER_DATA_H
 #define DANGDGEON_PLAYER_DATA_H
 
+#include <stdbool.h>
+
 #define MAX_NAME_LENGTH 16
 #define MAX_BAG_STORAGE 16
-
-#include <stdbool.h>
 
 struct bag_data {
     int category;   // 0 for weapon, 1 for armor
@@ -26,8 +26,8 @@ struct player_data {
     int gold;
     int weapon;
     int armor;
-    int portion;
-    struct bag_data bag[16];
+    int potion;
+    struct bag_data bag[MAX_BAG_STORAGE];
     int bag_number;
 };
 
