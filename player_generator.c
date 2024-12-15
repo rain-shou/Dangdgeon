@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include "player_generator.h"
-#include "shared.h"
+#include "map_data.h"
 #include "player_data.h"
 
-void generate_player() {
+void generate_player(void) {
     if (layer == 1) {
         for (;;) {
             player_pos_x = (int)(random() % 99 + 1);
@@ -43,7 +43,7 @@ void generate_player() {
     }
 }
 
-void restore_player_to_upstairs() {
+void restore_player_to_upstairs(void) {
     if ((walkable_layer[upstairs_pos[current_layer - 1][1] - 1][upstairs_pos[current_layer - 1][0]]) >= 0 &&
         (walkable_layer[upstairs_pos[current_layer - 1][1] - 1][upstairs_pos[current_layer - 1][0]]) < 9 &&
         entity_layer[upstairs_pos[current_layer - 1][1] - 1][upstairs_pos[current_layer - 1][0]] == ' ') {
@@ -72,7 +72,7 @@ void restore_player_to_upstairs() {
 }
 
 
-void restore_player_to_downstairs() {
+void restore_player_to_downstairs(void) {
     if ((walkable_layer[downstairs_pos[current_layer - 1][1] - 1][downstairs_pos[current_layer - 1][0]]) >= 0 &&
         (walkable_layer[downstairs_pos[current_layer - 1][1] - 1][downstairs_pos[current_layer - 1][0]]) < 9 &&
         entity_layer[downstairs_pos[current_layer - 1][1] - 1][downstairs_pos[current_layer - 1][0]] == ' ') {
