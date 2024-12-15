@@ -1,6 +1,6 @@
 #ifndef DANGDGEON_PLAYER_CONTROL_H
 #define DANGDGEON_PLAYER_CONTROL_H
 
-int player_move();
+int player_move(void);
 
 #endif //DANGDGEON_PLAYER_CONTROL_H
