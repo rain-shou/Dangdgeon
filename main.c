@@ -7,10 +7,11 @@
 #include "rendering.h"
 #include "player_generator.h"
 #include "interface.h"
-#include "script.h"
+#include "general_script.h"
 #include "dialogue.h"
 #include "map_data.h"
 #include "entity_generator.h"
+#include "enemy_generator.h"
 
 int main(void)
 {
@@ -27,7 +28,6 @@ int main(void)
             initialize_layer();
             generate_map();
             generate_player();
-            generate_entity_layer();
         } else if (current_layer <= layer) {
             refresh_entity_layer();
             load_layer(current_layer - 1);
@@ -44,8 +44,9 @@ int main(void)
                     }
                 }
             }
-            generate_entity_layer();
         }
+        generate_entity_layer();
+        generate_current_layer_enemies();
         while (1) {
             reveal_room();
             draw_layer();
