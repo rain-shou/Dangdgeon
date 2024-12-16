@@ -1,17 +1,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "script.h"
+#include "general_script.h"
 #include "map_data.h"
 #include "dialogue.h"
 #include "game_init.h"
 #include "player_data.h"
 #include "equipment_data.h"
+#include "enemy_data.h"
 
 void trigger_trap(void) {
     int damage = (int)(random() % 10 + 1);
     char message[20];
-    
+
     player.health -= damage;
     add_line_to_dialogue(dialogue, "You stepped on a trap!");
     snprintf(message, sizeof(message), "You lost %d health", damage);
@@ -89,7 +90,7 @@ void equip_equipment(int n) {
 
 void pickup_weapon(void) {
     char message[100];
-    
+
     if (player.bag_number <= MAX_BAG_STORAGE) {
         player.bag[player.bag_number].has_equipped = false;
         player.bag[player.bag_number].category = 0;
@@ -109,7 +110,7 @@ void pickup_weapon(void) {
 
 void pickup_armor(void) {
     char message[100];
-    
+
     if (player.bag_number <= MAX_BAG_STORAGE) {
         player.bag[player.bag_number].has_equipped = false;
         player.bag[player.bag_number].category = 1;
@@ -139,7 +140,7 @@ void pickup_potion(void) {
 
 void drink_potion(void) {
     char message[100];
-    
+
     if (player.potion > 0) {
         int health = player.health + 20 >= player.max_health ? player.max_health : player.health + 20;
         int pre_health = player.health;
@@ -166,6 +167,6 @@ bool check_win(void) {
     if (!amulet_not_taken && current_layer == 1) {
         return true;
     } else {
-        false;
+        return false;
     }
 }
