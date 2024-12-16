@@ -20,7 +20,7 @@ void generate_entity_layer(void) {
 
 void generate_equipment(void) {
     int has_equipment = false;
-    
+
     for (int i = 0; i < WEAPON_AMOUNT; i++) {
         if (weapon_list[i].floor == current_layer && !weapon_list[i].be_taken) {
             layer_treasure[0] = 0;
@@ -34,7 +34,7 @@ void generate_equipment(void) {
             break;
         }
     }
-    
+
     if (has_equipment) {
         for (;;) {
             int pos_x = (int)(random() % 99 + 1);
@@ -54,7 +54,7 @@ void generate_equipment(void) {
 
 void generate_gold(void) {
     int total_gold = (int)(random() % ((current_layer + 3) / 3) + 1);
-    
+
     for (int i = 0; i < total_gold; i++) {
         for (;;) {
             int pos_x = (int)(random() % 99 + 1);
@@ -70,7 +70,7 @@ void generate_gold(void) {
 
 void generate_potion(void) {
     int total_potion = (int)(random() % current_layer + 1) % 5;
-    
+
     for (int i = 0; i < total_potion; i++) {
         for (;;) {
             int pos_x = (int)(random() % 99 + 1);
