@@ -2,6 +2,7 @@
 #include "entity_generator.h"
 #include "equipment_data.h"
 #include "map_data.h"
+#include "interface.h"
 
 void refresh_entity_layer(void) {
     for (int i = 0; i < WIDTH; ++i) {
@@ -13,6 +14,7 @@ void refresh_entity_layer(void) {
 
 void generate_entity_layer(void) {
     generate_equipment();
+    show_message("generate equipment succeed.");
     generate_gold();
     generate_potion();
     generate_amulet();
@@ -35,6 +37,7 @@ void generate_equipment(void) {
         }
     }
 
+    show_message("restore equipment data succeed.");
     if (has_equipment) {
         for (;;) {
             int pos_x = (int)(random() % 99 + 1);
