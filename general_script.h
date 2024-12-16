@@ -1,5 +1,5 @@
-#ifndef DANGDGEON_SCRIPT_H
-#define DANGDGEON_SCRIPT_H
+#ifndef DANGDGEON_GENERAL_SCRIPT_H
+#define DANGDGEON_GENERAL_SCRIPT_H
 
 #include <stdbool.h>
 
@@ -16,4 +16,4 @@ void drink_potion(void);
 void pickup_amulet(void);
 bool check_win(void);
 
-#endif //DANGDGEON_SCRIPT_H
+#endif //DANGDGEON_GENERAL_SCRIPT_H
