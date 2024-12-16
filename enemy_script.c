@@ -23,7 +23,7 @@ void enemy_move(struct enemy_data *e) {
 }
 
 bool check_player_besides(struct enemy_data *e) {
-    return abs(player.pos_x - e->pos_x) <= 1 && abs(player.pos_y - e->pos_y);
+    return abs(player.pos_x - e->pos_x) <= 1 && abs(player.pos_y - e->pos_y) <= 1;
 }
 
 bool is_player_in_range(struct enemy_data *e, int range) {
