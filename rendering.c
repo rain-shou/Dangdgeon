@@ -3,7 +3,6 @@
 #include "map_data.h"
 #include "dialogue.h"
 #include "player_data.h"
-#include "enemy_generator.h"
 
 void draw_layer(void) {
     clear();
