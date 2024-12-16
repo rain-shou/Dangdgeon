@@ -20,11 +20,10 @@ add_executable(Dangdgeon main.c
         player_generator.c
         environment_generator.h
         environment_generator.c
-        tool.c
         interface.h
         interface.c
-        script.c
-        script.h
+        general_script.c
+        general_script.h
         dialogue.h
         dialogue.c
         equipment_data.h
@@ -33,6 +32,16 @@ add_executable(Dangdgeon main.c
         player_data.c
         entity_generator.h
         entity_generator.c
+        enemy_data.h
+        enemy_data.c
+        enemy_generator.h
+        enemy_generator.c
+        combat_script.h
+        combat_script.c
+        enemy_script.h
+        enemy_script.c
+        saver_loader.h
+        saver_loader.c
 )
 
 find_package(Curses REQUIRED)
