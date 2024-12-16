@@ -5,11 +5,12 @@
 #include "map_data.h"
 #include "player_data.h"
 #include "general_script.h"
+#include "saver_loader.h"
 
-#define START_SCREEN_OPTION_COUNT 2
-#define EXIT_SCREEN_OPTION_COUNT 2
+#define START_SCREEN_OPTION_COUNT 3
+#define EXIT_SCREEN_OPTION_COUNT 3
 
-void show_start_screen(void) {
+bool show_start_screen(void) {
     int current_option = 0;
     const char *title[] = {
             " /$$$$$$$   /$$$$$$  /$$   /$$  /$$$$$$           ",
@@ -31,7 +32,8 @@ void show_start_screen(void) {
             "|_______/  \\______/ |________/ \\______/ |__/  \\__/"
     };
     const int title_lines = sizeof(title) / sizeof(title[0]);
-    const char *options[START_SCREEN_OPTION_COUNT] = {"START GAME", "EXIT GAME"};
+    const char *options[START_SCREEN_OPTION_COUNT] = {"START GAME", "LOAD GAME", "EXIT GAME"};
+
 
     for (;;) {
         clear();
@@ -55,8 +57,10 @@ void show_start_screen(void) {
                 break;
             case '\n':
                 if (current_option == 0) {
-                    return;
+                    return true;
                 } else if (current_option == 1) {
+                    return false;
+                } else if (current_option == 2) {
                     endwin();
                     exit(0);
                 }
@@ -69,7 +73,7 @@ void show_start_screen(void) {
 
 bool show_exit_screen(void) {
     int current_option = 0;
-    const char *options[EXIT_SCREEN_OPTION_COUNT] = {"RESUME GAME", "EXIT GAME"};
+    const char *options[EXIT_SCREEN_OPTION_COUNT] = {"RESUME GAME", "SAVE GAME","EXIT GAME"};
 
     while (1) {
         clear();
@@ -92,6 +96,10 @@ bool show_exit_screen(void) {
                 if (current_option == 0) {
                     return true;
                 } else if (current_option == 1) {
+                    save_game("./savegame.dat");
+                    show_message("Game saved successfully.\n");
+                    return true;
+                } else if (current_option == 2) {
                     return false;
                 }
                 break;
@@ -248,5 +256,15 @@ bool show_game_end(void) {
             default:
                 break;
         }
+    }
+}
+
+void show_message(char *str) {
+    clear();
+    mvprintw(LINES / 2, (int)(COLS - strlen(str)) / 2, str);
+    refresh();
+    switch (getch()) {
+        default:
+            break;
     }
 }
