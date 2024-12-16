@@ -11,10 +11,10 @@ struct dialogue_info *create_dialogue(void) {
         fprintf(stderr, "Error: create_dialogue falls. Malloc Error.\n");
         exit(EXIT_FAILURE);
     }
-    
+
     temp_dialogue->lines = NULL;
     temp_dialogue->line_count = 0;
-    
+
     return temp_dialogue;
 }
 
@@ -24,7 +24,7 @@ void add_line_to_dialogue(struct dialogue_info *d, const char *line) {
         fprintf(stderr, "Error: add_line_to_dialogue falls. Re-allocating Error.\n");
         exit(EXIT_FAILURE);
     }
-    
+
     d->lines = temp;
     d->lines[d->line_count] = strdup(line);
     d->line_count++;
