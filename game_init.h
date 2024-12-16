@@ -3,8 +3,8 @@
 
 #include "player_data.h"
 
-void initialize_game();
-void initialize_layer();
+void initialize_game(void);
+void initialize_layer(void);
 void initialize_player(struct player_data *player);
 void load_layer(int n);
 void save_current_layer(int n);
