@@ -33,7 +33,7 @@ void generate_enemy(struct enemy_data *e) {
     enemy_is_existed[ch - 'a'] = true;
     e->is_dead = false;
     e->attack = (int)(5 + current_layer * 0.5) + (int)(random() % (current_layer / 5 + 2));
-    e->defense = (int)(2 + current_layer * 0.5) + (int)(random() % (current_layer / 10 + 2));
+    e->defense = (int)(2 + current_layer * 0.5) + (int)(random() % (current_layer / 5 + 2));
     e->health = (int)(20 + current_layer) + (int)(random() % (current_layer / 2 + 1));
     e->level = current_layer;
     for (;;) {
