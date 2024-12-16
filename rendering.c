@@ -37,8 +37,8 @@ void draw_layer(void) {
             }
         }
     }
-    mvprintw(WIDTH + 2, 0, "Enemies: %3d  Layer: %3d  Level:%3d  Gold: %6d  Hp: %4d(%4d)  Str: %4d + %4d  Arm: %4d + %4d  Exp: %6d/%6d  Portion: %4d",
-             enemies_amount, current_layer, player.level, player.gold, player.health, player.max_health,
+    mvprintw(WIDTH + 2, 0, "Layer: %3d  Level:%3d  Gold: %6d  Hp: %4d(%4d)  Str: %4d + %4d  Arm: %4d + %4d  Exp: %6d/%6d  Portion: %4d",
+             current_layer, player.level, player.gold, player.health, player.max_health,
              player.attack, player.total_attack - player.attack, player.defense, player.total_defense - player.defense,
              player.experience, player.level * 100, player.potion);
 
