@@ -1,14 +1,12 @@
 #include <stdlib.h>
 #include "game_init.h"
 #include "dialogue.h"
-#include "interface.h"
 #include "player_data.h"
 #include "map_data.h"
 #include "equipment_data.h"
 
 void initialize_game(void) {
     initialize_player(&player);
-    get_player_name(player.name, MAX_NAME_LENGTH);
     layer = 0;
     current_layer = 1;
     for (int i = 0; i < LAYER; i++) {
@@ -34,7 +32,7 @@ void initialize_player(struct player_data *p) {
     p->total_defense = p->defense;
     p->level = 1;
     p->gold = 0;
-    p->experience = 100;
+    p->experience = 0;
     p->armor = -1;
     p->weapon = -1;
     p->potion = 0;
