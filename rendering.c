@@ -56,7 +56,7 @@ void reveal_room(void) {
             }
         }
     }
-    int n = walkable_layer[player_pos_y][player_pos_x];
+    int n = walkable_layer[player.pos_y][player.pos_x];
     if (n >= 0 && n < 9) {
         for (int i = room_data[n].map_info.north; i <= room_data[n].map_info.south; ++i) {
             for (int j = room_data[n].map_info.west; j <= room_data[n].map_info.east; ++j) {
@@ -64,8 +64,8 @@ void reveal_room(void) {
             }
         }
     }
-    for (int i = player_pos_y - 1; i <= player_pos_y + 1; ++i) {
-        for (int j = player_pos_x - 1; j <= player_pos_x + 1; ++j) {
+    for (int i = player.pos_y - 1; i <= player.pos_y + 1; ++i) {
+        for (int j = player.pos_x - 1; j <= player.pos_x + 1; ++j) {
             explored_layer[i][j] = 2;
         }
     }
