@@ -4,7 +4,7 @@
 #include "interface.h"
 #include "map_data.h"
 #include "player_data.h"
-#include "script.h"
+#include "general_script.h"
 
 #define START_SCREEN_OPTION_COUNT 2
 #define EXIT_SCREEN_OPTION_COUNT 2
@@ -152,7 +152,7 @@ bool show_game_over(void) {
 
 void get_player_name(char *name, int max_length) {
     char buffer[128];
-    
+
     echo();
     curs_set(1);
     clear();
