@@ -29,9 +29,10 @@ struct player_data {
     int potion;
     struct bag_data bag[MAX_BAG_STORAGE];
     int bag_number;
+    int pos_x;
+    int pos_y;
 };
 
 extern struct player_data player;
-extern int player_pos_x, player_pos_y;
 
 #endif //DANGDGEON_PLAYER_DATA_H
