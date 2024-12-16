@@ -7,7 +7,6 @@
 #include "game_init.h"
 #include "player_data.h"
 #include "equipment_data.h"
-#include "enemy_data.h"
 
 void trigger_trap(void) {
     int damage = (int)(random() % 10 + 1);
@@ -19,7 +18,7 @@ void trigger_trap(void) {
     add_line_to_dialogue(dialogue, message);
 }
 
-bool check_death(void) {
+bool check_player_death(void) {
     if (player.health <= 0) {
         return true;
     } else {
