@@ -15,87 +15,21 @@ void generate_player(void) {
             }
         }
     } else {
-        if ((walkable_layer[upstairs_pos[layer - 1][1] - 1][upstairs_pos[layer - 1][0]]) >= 0 &&
-                (walkable_layer[upstairs_pos[layer - 1][1] - 1][upstairs_pos[layer - 1][0]]) < 9 &&
-                entity_layer[upstairs_pos[layer - 1][1] - 1][upstairs_pos[layer - 1][0]] == ' ') {
-            player_pos_x = upstairs_pos[layer - 1][0];
-            player_pos_y = upstairs_pos[layer - 1][1] - 1;
-            entity_layer[player_pos_y][player_pos_x] = '@';
-        } else if ((walkable_layer[upstairs_pos[layer - 1][1] + 1][upstairs_pos[layer - 1][0]]) >= 0 &&
-                   (walkable_layer[upstairs_pos[layer - 1][1] + 1][upstairs_pos[layer - 1][0]]) < 9 &&
-                   entity_layer[upstairs_pos[layer - 1][1] + 1][upstairs_pos[layer - 1][0]] == ' ') {
-            player_pos_x = upstairs_pos[layer - 1][0];
-            player_pos_y = upstairs_pos[layer - 1][1] + 1;
-            entity_layer[player_pos_y][player_pos_x] = '@';
-        } else if ((walkable_layer[upstairs_pos[layer - 1][1]][upstairs_pos[layer - 1][0]] - 1) >= 0 &&
-              (walkable_layer[upstairs_pos[layer - 1][1]][upstairs_pos[layer - 1][0]] - 1) < 9 &&
-              entity_layer[upstairs_pos[layer - 1][1]][upstairs_pos[layer - 1][0]] == ' ') {
-            player_pos_x = upstairs_pos[layer - 1][0] - 1;
-            player_pos_y = upstairs_pos[layer - 1][1];
-            entity_layer[player_pos_y][player_pos_x] = '@';
-        } else if ((walkable_layer[upstairs_pos[layer - 1][1]][upstairs_pos[layer - 1][0]] + 1) >= 0 &&
-                   (walkable_layer[upstairs_pos[layer - 1][1]][upstairs_pos[layer - 1][0]] + 1) < 9 &&
-                   entity_layer[upstairs_pos[layer - 1][1]][upstairs_pos[layer - 1][0]] == ' ') {
-            player_pos_x = upstairs_pos[layer - 1][0] + 1;
-            player_pos_y = upstairs_pos[layer - 1][1];
-            entity_layer[player_pos_y][player_pos_x] = '@';
-        }
+        player_pos_x = upstairs_pos[current_layer - 1][0];
+        player_pos_y = upstairs_pos[current_layer - 1][1];
+        entity_layer[player_pos_y][player_pos_x] = '@';
+
     }
 }
 
 void restore_player_to_upstairs(void) {
-    if ((walkable_layer[upstairs_pos[current_layer - 1][1] - 1][upstairs_pos[current_layer - 1][0]]) >= 0 &&
-        (walkable_layer[upstairs_pos[current_layer - 1][1] - 1][upstairs_pos[current_layer - 1][0]]) < 9 &&
-        entity_layer[upstairs_pos[current_layer - 1][1] - 1][upstairs_pos[current_layer - 1][0]] == ' ') {
-        player_pos_x = upstairs_pos[current_layer - 1][0];
-        player_pos_y = upstairs_pos[current_layer - 1][1] - 1;
-        entity_layer[player_pos_y][player_pos_x] = '@';
-    } else if ((walkable_layer[upstairs_pos[current_layer - 1][1] + 1][upstairs_pos[current_layer - 1][0]]) >= 0 &&
-               (walkable_layer[upstairs_pos[current_layer - 1][1] + 1][upstairs_pos[current_layer - 1][0]]) < 9 &&
-               entity_layer[upstairs_pos[current_layer - 1][1] + 1][upstairs_pos[current_layer - 1][0]] == ' ') {
-        player_pos_x = upstairs_pos[current_layer - 1][0];
-        player_pos_y = upstairs_pos[current_layer - 1][1] + 1;
-        entity_layer[player_pos_y][player_pos_x] = '@';
-    } else if ((walkable_layer[upstairs_pos[current_layer - 1][1]][upstairs_pos[current_layer - 1][0]] - 1) >= 0 &&
-               (walkable_layer[upstairs_pos[current_layer - 1][1]][upstairs_pos[current_layer - 1][0]] - 1) < 9 &&
-               entity_layer[upstairs_pos[current_layer - 1][1]][upstairs_pos[current_layer - 1][0]] == ' ') {
-        player_pos_x = upstairs_pos[current_layer - 1][0] - 1;
-        player_pos_y = upstairs_pos[current_layer - 1][1];
-        entity_layer[player_pos_y][player_pos_x] = '@';
-    } else if ((walkable_layer[upstairs_pos[current_layer - 1][1]][upstairs_pos[current_layer - 1][0]] + 1) >= 0 &&
-               (walkable_layer[upstairs_pos[current_layer - 1][1]][upstairs_pos[current_layer - 1][0]] + 1) < 9 &&
-               entity_layer[upstairs_pos[current_layer - 1][1]][upstairs_pos[current_layer - 1][0]] == ' ') {
-        player_pos_x = upstairs_pos[current_layer - 1][0] + 1;
-        player_pos_y = upstairs_pos[current_layer - 1][1];
-        entity_layer[player_pos_y][player_pos_x] = '@';
-    }
+    player_pos_x = upstairs_pos[current_layer - 1][0];
+    player_pos_y = upstairs_pos[current_layer - 1][1];
+    entity_layer[player_pos_y][player_pos_x] = '@';
 }
 
-
 void restore_player_to_downstairs(void) {
-    if ((walkable_layer[downstairs_pos[current_layer - 1][1] - 1][downstairs_pos[current_layer - 1][0]]) >= 0 &&
-        (walkable_layer[downstairs_pos[current_layer - 1][1] - 1][downstairs_pos[current_layer - 1][0]]) < 9 &&
-        entity_layer[downstairs_pos[current_layer - 1][1] - 1][downstairs_pos[current_layer - 1][0]] == ' ') {
-        player_pos_x = downstairs_pos[current_layer - 1][0];
-        player_pos_y = downstairs_pos[current_layer - 1][1] - 1;
-        entity_layer[player_pos_y][player_pos_x] = '@';
-    } else if ((walkable_layer[downstairs_pos[current_layer - 1][1] + 1][downstairs_pos[current_layer - 1][0]]) >= 0 &&
-               (walkable_layer[downstairs_pos[current_layer - 1][1] + 1][downstairs_pos[current_layer - 1][0]]) < 9 &&
-               entity_layer[downstairs_pos[current_layer - 1][1] + 1][downstairs_pos[current_layer - 1][0]] == ' ') {
-        player_pos_x = downstairs_pos[current_layer - 1][0];
-        player_pos_y = downstairs_pos[current_layer - 1][1] + 1;
-        entity_layer[player_pos_y][player_pos_x] = '@';
-    } else if ((walkable_layer[downstairs_pos[current_layer - 1][1]][downstairs_pos[current_layer - 1][0]] - 1) >= 0 &&
-               (walkable_layer[downstairs_pos[current_layer - 1][1]][downstairs_pos[current_layer - 1][0]] - 1) < 9 &&
-               entity_layer[downstairs_pos[current_layer - 1][1]][downstairs_pos[current_layer - 1][0]] == ' ') {
-        player_pos_x = downstairs_pos[current_layer - 1][0] - 1;
-        player_pos_y = downstairs_pos[current_layer - 1][1];
-        entity_layer[player_pos_y][player_pos_x] = '@';
-    } else if ((walkable_layer[downstairs_pos[current_layer - 1][1]][downstairs_pos[current_layer - 1][0]] + 1) >= 0 &&
-               (walkable_layer[downstairs_pos[current_layer - 1][1]][downstairs_pos[current_layer - 1][0]] + 1) < 9 &&
-               entity_layer[downstairs_pos[current_layer - 1][1]][downstairs_pos[current_layer - 1][0]] == ' ') {
-        player_pos_x = downstairs_pos[current_layer - 1][0] + 1;
-        player_pos_y = downstairs_pos[current_layer - 1][1];
-        entity_layer[player_pos_y][player_pos_x] = '@';
-    }
+    player_pos_x = downstairs_pos[current_layer - 1][0];
+    player_pos_y = downstairs_pos[current_layer - 1][1];
+    entity_layer[player_pos_y][player_pos_x] = '@';
 }
