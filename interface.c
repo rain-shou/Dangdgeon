@@ -9,6 +9,8 @@
 
 #define START_SCREEN_OPTION_COUNT 3
 #define EXIT_SCREEN_OPTION_COUNT 3
+#define GAME_OVER_SCREEN_OPTION_COUNT 2
+#define GAME_END_SCREEN_OPTION_COUNT 2
 
 bool show_start_screen(void) {
     int current_option = 0;
@@ -119,7 +121,7 @@ bool show_game_over(void) {
             " \\____|\\__,_|_| |_| |_|\\___|  \\___/  \\_/ \\___|_|   ",
     };
     const int title_lines = sizeof(title) / sizeof(title[0]);
-    const char *options[START_SCREEN_OPTION_COUNT] = {"RESTART", "EXIT GAME"};
+    const char *options[GAME_OVER_SCREEN_OPTION_COUNT] = {"RESTART", "EXIT GAME"};
 
     for (;;) {
         clear();
@@ -130,7 +132,7 @@ bool show_game_over(void) {
         mvprintw(7 + title_lines, (int)(COLS - 13) / 2, "Level: %6d", player.level);
         mvprintw(8 + title_lines, (int)(COLS - 13) / 2, "Layer: %6d", layer);
         mvprintw(9 + title_lines, (int)(COLS - 12) / 2, "Gold: %6d", player.gold);
-        for (int i = 0; i < START_SCREEN_OPTION_COUNT; i++) {
+        for (int i = 0; i < GAME_OVER_SCREEN_OPTION_COUNT; i++) {
             if (i == current_option) {
                 mvprintw(12 + title_lines + i, (int)(COLS - strlen(options[i]) - 4) / 2, "< %s >", options[i]);
             } else {
@@ -140,10 +142,10 @@ bool show_game_over(void) {
         refresh();
         switch (getch()) {
             case KEY_UP:
-                current_option = (current_option - 1 + START_SCREEN_OPTION_COUNT) % START_SCREEN_OPTION_COUNT;
+                current_option = (current_option - 1 + GAME_OVER_SCREEN_OPTION_COUNT) % GAME_OVER_SCREEN_OPTION_COUNT;
                 break;
             case KEY_DOWN:
-                current_option = (current_option + 1) % START_SCREEN_OPTION_COUNT;
+                current_option = (current_option + 1) % GAME_OVER_SCREEN_OPTION_COUNT;
                 break;
             case '\n':
                 if (current_option == 0) {
@@ -218,7 +220,7 @@ bool show_game_end(void) {
             "                  |___/                                                       "
     };
     const int title_lines = sizeof(title) / sizeof(title[0]);
-    const char *options[START_SCREEN_OPTION_COUNT] = {"RESTART", "EXIT GAME"};
+    const char *options[GAME_END_SCREEN_OPTION_COUNT] = {"RESTART", "EXIT GAME"};
 
     for (;;) {
         clear();
@@ -231,7 +233,7 @@ bool show_game_end(void) {
         mvprintw(9 + title_lines, (int)(COLS - 13) / 2, "Layer: %6d", layer);
         mvprintw(10 + title_lines, (int)(COLS - 12) / 2, "Gold: %6d", player.gold);
         mvprintw(12 + title_lines, (int)(COLS - strlen(message2)) / 2, "%s", message2);
-        for (int i = 0; i < START_SCREEN_OPTION_COUNT; i++) {
+        for (int i = 0; i < GAME_END_SCREEN_OPTION_COUNT; i++) {
             if (i == current_option) {
                 mvprintw(15 + title_lines + i, (int)(COLS - strlen(options[i]) - 4) / 2, "< %s >", options[i]);
             } else {
@@ -241,10 +243,10 @@ bool show_game_end(void) {
         refresh();
         switch (getch()) {
             case KEY_UP:
-                current_option = (current_option - 1 + START_SCREEN_OPTION_COUNT) % START_SCREEN_OPTION_COUNT;
+                current_option = (current_option - 1 + GAME_END_SCREEN_OPTION_COUNT) % GAME_END_SCREEN_OPTION_COUNT;
                 break;
             case KEY_DOWN:
-                current_option = (current_option + 1) % START_SCREEN_OPTION_COUNT;
+                current_option = (current_option + 1) % GAME_END_SCREEN_OPTION_COUNT;
                 break;
             case '\n':
                 if (current_option == 0) {
